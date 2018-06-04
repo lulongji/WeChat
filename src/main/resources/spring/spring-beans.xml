@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <!--定义属性信息源 -->
+    <bean id="propertiesSource" class="com.llj.framework.io.PropertiesSource">
+        <property name="path" value="classpath:props/**/*.properties"/>
+        <property name="propertiesResourceParser">
+            <bean class="com.llj.framework.io.support.MapPropertiesResourceParser"/>
+        </property>
+    </bean>
+</beans>

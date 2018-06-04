@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- 全局映射器启用缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 允许 JDBC 支持生成的键。 需要适合的驱动。 如果设置为 true 则这个设置强制 生成的键被使用, 尽管一些驱动拒绝兼容但仍然有效(比如
+            Derby) -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!-- 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE 执行器重用 预处理语句。BATCH 执行器重用语句 和批量更新 -->
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <!--设置日志记录使用方式 -->
+        <setting name="logImpl" value="LOG4J2"/>
+        <!-- 数据库记录与bean映射时 下划线换成驼峰型 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <!-- 类型别名。 给java类型取一个别名，方便在核心配置、映射配置中来使用这个java类型。 -->
+    <typeAliases>
+        <package name="com.llj.web.entity"/>
+    </typeAliases>
+
+    <!-- 翻页插件拦截器 -->
+    <plugins>
+        <plugin interceptor="com.llj.framework.page.PaginationInterceptor">
+            <property name="dialect" value="oracle"/>
+        </plugin>
+    </plugins>
+
+</configuration>
